@@ -324,7 +324,7 @@ namespace MysqlDemo.Migrations
                     ClientId = table.Column<string>(maxLength: 200, nullable: false),
                     CreationTime = table.Column<DateTime>(nullable: false),
                     Expiration = table.Column<DateTime>(nullable: true),
-                    Data = table.Column<string>(maxLength: 50000, nullable: false)
+                    Data = table.Column<string>(maxLength: 10000, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -555,7 +555,7 @@ namespace MysqlDemo.Migrations
                 columns: table => new
                 {
                     Type = table.Column<string>(maxLength: 250, nullable: false),
-                    Value = table.Column<string>(maxLength: 4000, nullable: false),
+                    Value = table.Column<string>(maxLength: 300, nullable: false),
                     ApiResourceId = table.Column<Guid>(nullable: false),
                     Description = table.Column<string>(maxLength: 2000, nullable: true),
                     Expiration = table.Column<DateTime>(nullable: true)
@@ -649,7 +649,7 @@ namespace MysqlDemo.Migrations
                 columns: table => new
                 {
                     ClientId = table.Column<Guid>(nullable: false),
-                    PostLogoutRedirectUri = table.Column<string>(maxLength: 2000, nullable: false)
+                    PostLogoutRedirectUri = table.Column<string>(maxLength: 300, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -686,7 +686,7 @@ namespace MysqlDemo.Migrations
                 columns: table => new
                 {
                     ClientId = table.Column<Guid>(nullable: false),
-                    RedirectUri = table.Column<string>(maxLength: 2000, nullable: false)
+                    RedirectUri = table.Column<string>(maxLength: 300, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -722,7 +722,7 @@ namespace MysqlDemo.Migrations
                 columns: table => new
                 {
                     Type = table.Column<string>(maxLength: 250, nullable: false),
-                    Value = table.Column<string>(maxLength: 4000, nullable: false),
+                    Value = table.Column<string>(maxLength: 300, nullable: false),
                     ClientId = table.Column<Guid>(nullable: false),
                     Description = table.Column<string>(maxLength: 2000, nullable: true),
                     Expiration = table.Column<DateTime>(nullable: true)

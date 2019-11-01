@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Volo.Abp;
+using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.IdentityServer.EntityFrameworkCore;
 using Volo.Abp.Users;
 
 namespace MysqlDemo.EntityFrameworkCore
@@ -19,6 +21,11 @@ namespace MysqlDemo.EntityFrameworkCore
 
             //    //...
             //});
+            builder.ConfigureIdentityServer(options =>
+            {
+                options.DatabaseProvider = EfCoreDatabaseProvider.MySql;
+            });
+//            builder.ConfigureIdentityServerForMySQL();
         }
 
         public static void ConfigureCustomUserProperties<TUser>(this EntityTypeBuilder<TUser> b)

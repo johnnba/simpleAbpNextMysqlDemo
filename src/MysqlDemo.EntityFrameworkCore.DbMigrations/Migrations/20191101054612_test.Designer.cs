@@ -9,7 +9,7 @@ using MysqlDemo.EntityFrameworkCore;
 namespace MysqlDemo.Migrations
 {
     [DbContext(typeof(MysqlDemoMigrationsDbContext))]
-    [Migration("20191101042649_test")]
+    [Migration("20191101054612_test")]
     partial class test
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -858,8 +858,8 @@ namespace MysqlDemo.Migrations
                         .HasMaxLength(250);
 
                     b.Property<string>("Value")
-                        .HasColumnType("longtext")
-                        .HasMaxLength(4000);
+                        .HasColumnType("varchar(300)")
+                        .HasMaxLength(300);
 
                     b.Property<string>("Description")
                         .HasColumnType("varchar(2000)")
@@ -1115,8 +1115,8 @@ namespace MysqlDemo.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<string>("PostLogoutRedirectUri")
-                        .HasColumnType("varchar(2000)")
-                        .HasMaxLength(2000);
+                        .HasColumnType("varchar(300)")
+                        .HasMaxLength(300);
 
                     b.HasKey("ClientId", "PostLogoutRedirectUri");
 
@@ -1148,8 +1148,8 @@ namespace MysqlDemo.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<string>("RedirectUri")
-                        .HasColumnType("varchar(2000)")
-                        .HasMaxLength(2000);
+                        .HasColumnType("varchar(300)")
+                        .HasMaxLength(300);
 
                     b.HasKey("ClientId", "RedirectUri");
 
@@ -1180,8 +1180,8 @@ namespace MysqlDemo.Migrations
                         .HasMaxLength(250);
 
                     b.Property<string>("Value")
-                        .HasColumnType("longtext")
-                        .HasMaxLength(4000);
+                        .HasColumnType("varchar(300)")
+                        .HasMaxLength(300);
 
                     b.Property<string>("Description")
                         .HasColumnType("varchar(2000)")
@@ -1215,7 +1215,7 @@ namespace MysqlDemo.Migrations
                     b.Property<string>("Data")
                         .IsRequired()
                         .HasColumnType("longtext")
-                        .HasMaxLength(50000);
+                        .HasMaxLength(10000);
 
                     b.Property<DateTime?>("Expiration")
                         .HasColumnType("datetime(6)");

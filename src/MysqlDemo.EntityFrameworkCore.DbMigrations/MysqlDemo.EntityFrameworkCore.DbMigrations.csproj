@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20191101042649_test.cs" />
+    <Compile Remove="Migrations\20191101042649_test.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MysqlDemo.EntityFrameworkCore\MysqlDemo.EntityFrameworkCore.csproj" />
   </ItemGroup>
 

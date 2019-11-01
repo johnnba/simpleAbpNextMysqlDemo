@@ -51,11 +51,7 @@ namespace MysqlDemo.EntityFrameworkCore
             /* Configure your own tables/entities inside the ConfigureMysqlDemo method */
 
             builder.ConfigureMysqlDemo();
-            builder.ConfigureIdentityServer(options =>
-            {
-                options.DatabaseProvider = EfCoreDatabaseProvider.MySql;
-            });
-            builder.ConfigureIdentityServerForMySQL();
+           
         }
     }
 }
