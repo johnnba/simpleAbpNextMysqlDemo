@@ -9,7 +9,7 @@ using MysqlDemo.EntityFrameworkCore;
 namespace MysqlDemo.Migrations
 {
     [DbContext(typeof(MysqlDemoMigrationsDbContext))]
-    [Migration("20191101095446_guild updtae")]
+    [Migration("20191101112600_guild updtae")]
     partial class guildupdtae
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,9 +41,11 @@ namespace MysqlDemo.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<Guid?>("DeleterId")
+                        .HasColumnName("DeleterId")
                         .HasColumnType("char(36)");
 
                     b.Property<DateTime?>("DeletionTime")
+                        .HasColumnName("DeletionTime")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Desc")
@@ -54,7 +56,10 @@ namespace MysqlDemo.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.Property<DateTime?>("LastModificationTime")
                         .HasColumnName("LastModificationTime")

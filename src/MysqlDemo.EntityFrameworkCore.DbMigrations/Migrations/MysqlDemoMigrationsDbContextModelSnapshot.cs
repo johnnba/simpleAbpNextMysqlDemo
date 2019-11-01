@@ -39,9 +39,11 @@ namespace MysqlDemo.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<Guid?>("DeleterId")
+                        .HasColumnName("DeleterId")
                         .HasColumnType("char(36)");
 
                     b.Property<DateTime?>("DeletionTime")
+                        .HasColumnName("DeletionTime")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Desc")
@@ -52,7 +54,10 @@ namespace MysqlDemo.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.Property<DateTime?>("LastModificationTime")
                         .HasColumnName("LastModificationTime")

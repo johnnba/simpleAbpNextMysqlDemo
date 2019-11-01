@@ -63,7 +63,7 @@ namespace MysqlDemo.IdentityServer
                 Compacity = 200,
                 Desc = "guild tester created"
             };
-            await _guilds.InsertAsync(guild);
+            await _guilds.InsertAsync(guild,true);
         }
 
         private async Task CreateApiResourcesAsync()

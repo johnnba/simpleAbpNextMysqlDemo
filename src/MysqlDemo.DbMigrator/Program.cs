@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Microsoft.Extensions.DependencyInjection;
 using MysqlDemo.Data;
 using Serilog;
@@ -21,13 +22,37 @@ namespace MysqlDemo.DbMigrator
             }))
             {
                 application.Initialize();
+                string start=string.Empty  ;
+                Console.WriteLine("Input start to start migration database");
+                while  (true)
+                {
+                    if(start=="start")
+                    {
+                        try
+                        {
+                            AsyncHelper.RunSync(
+                                () => application
+                                    .ServiceProvider
+                                    .GetRequiredService<MysqlDemoDbMigrationService>()
+                                    .MigrateAsync()
+                            );
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e);
+                            
+                        }
+                        Console.WriteLine("End the migration");
+                        Console.WriteLine("Input start to start migration database");
+                    }
 
-                AsyncHelper.RunSync(
-                    () => application
-                        .ServiceProvider
-                        .GetRequiredService<MysqlDemoDbMigrationService>()
-                        .MigrateAsync()
-                );
+                    start = Console.ReadLine();
+                    if (start=="exit")
+                    {
+                        break;
+                    }
+                }
+                
 
                 application.Shutdown();
             }

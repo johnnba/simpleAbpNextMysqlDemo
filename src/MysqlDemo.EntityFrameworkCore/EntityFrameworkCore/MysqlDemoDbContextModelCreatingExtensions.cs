@@ -17,29 +17,21 @@ namespace MysqlDemo.EntityFrameworkCore
 
             /* Configure your own tables/entities inside here */
 
-            //builder.Entity<YourEntity>(b =>
-            //{
-            //    b.ToTable(MysqlDemoConsts.DbTablePrefix + "YourEntities", MysqlDemoConsts.DbSchema);
-
-            //    //...
-            //});
-            builder.Entity<AppGuild>(b => {
-                //                b.ToTable(WMSConsts.DbTablePrefix + typeof(Inventory).Name, WMSConsts.DbSchema);
+            builder.Entity<AppGuild>(b =>
+            {
                 b.ToTable("AppGuilds");
-                b.ConfigureAudited();
-                b.ConfigureExtraProperties();
-                b.ConfigureConcurrencyStamp();
-                b.Property(x=>x.Id).ValueGeneratedNever();
+                b.ConfigureFullAuditedAggregateRoot();
+                b.Property(x => x.Id).ValueGeneratedNever();
             });
             builder.ConfigureIdentityServer(options =>
             {
                 options.DatabaseProvider = EfCoreDatabaseProvider.MySql;
             });
-//            builder.ConfigureIdentityServerForMySQL();
+            //            builder.ConfigureIdentityServerForMySQL();
         }
 
         public static void ConfigureCustomUserProperties<TUser>(this EntityTypeBuilder<TUser> b)
-            where TUser: class, IUser
+            where TUser : class, IUser
         {
             //b.Property<string>(nameof(AppUser.MyProperty))...
         }

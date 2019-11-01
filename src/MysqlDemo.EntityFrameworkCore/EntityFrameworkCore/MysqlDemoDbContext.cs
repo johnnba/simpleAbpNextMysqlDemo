@@ -48,18 +48,12 @@ namespace MysqlDemo.EntityFrameworkCore
                 //Moved customization to a method so we can share it with the MysqlDemoMigrationsDbContext class
                 b.ConfigureCustomUserProperties();
             });
-builder.Entity<AppGuild>(b =>
-            {
-                //Sharing the same table "AbpUsers" with the IdentityUser
-                b.ConfigureByConvention();
-                 
-                 
-            });
+ 
 
             /* Configure your own tables/entities inside the ConfigureMysqlDemo method */
 
             builder.ConfigureMysqlDemo();
-           
+
         }
     }
 }
