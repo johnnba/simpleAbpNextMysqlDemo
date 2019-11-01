@@ -21,6 +21,7 @@ namespace MysqlDemo.EntityFrameworkCore
     public class MysqlDemoDbContext : AbpDbContext<MysqlDemoDbContext>
     {
         public DbSet<AppUser> Users { get; set; }
+        public DbSet<AppGuild> Guilds { get; set; }
 
         /* Add DbSet properties for your Aggregate Roots / Entities here.
          * Also map them inside MysqlDemoDbContextModelCreatingExtensions.ConfigureMysqlDemo
@@ -46,6 +47,13 @@ namespace MysqlDemo.EntityFrameworkCore
 
                 //Moved customization to a method so we can share it with the MysqlDemoMigrationsDbContext class
                 b.ConfigureCustomUserProperties();
+            });
+builder.Entity<AppGuild>(b =>
+            {
+                //Sharing the same table "AbpUsers" with the IdentityUser
+                b.ConfigureByConvention();
+                 
+                 
             });
 
             /* Configure your own tables/entities inside the ConfigureMysqlDemo method */

@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using MysqlDemo.Users;
 using Volo.Abp;
 using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.EntityFrameworkCore.Modeling;
 using Volo.Abp.IdentityServer.EntityFrameworkCore;
 using Volo.Abp.Users;
 
@@ -21,6 +23,14 @@ namespace MysqlDemo.EntityFrameworkCore
 
             //    //...
             //});
+            builder.Entity<AppGuild>(b => {
+                //                b.ToTable(WMSConsts.DbTablePrefix + typeof(Inventory).Name, WMSConsts.DbSchema);
+                b.ToTable("AppGuilds");
+                b.ConfigureAudited();
+                b.ConfigureExtraProperties();
+                b.ConfigureConcurrencyStamp();
+                b.Property(x=>x.Id).ValueGeneratedNever();
+            });
             builder.ConfigureIdentityServer(options =>
             {
                 options.DatabaseProvider = EfCoreDatabaseProvider.MySql;

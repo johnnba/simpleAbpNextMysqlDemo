@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MysqlDemo.Migrations
 {
-    public partial class test : Migration
+    public partial class guildupdtae : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -199,6 +199,29 @@ namespace MysqlDemo.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AbpUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AppGuilds",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    ExtraProperties = table.Column<string>(nullable: true),
+                    ConcurrencyStamp = table.Column<string>(nullable: true),
+                    CreationTime = table.Column<DateTime>(nullable: false),
+                    CreatorId = table.Column<Guid>(nullable: true),
+                    LastModificationTime = table.Column<DateTime>(nullable: true),
+                    LastModifierId = table.Column<Guid>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeleterId = table.Column<Guid>(nullable: true),
+                    DeletionTime = table.Column<DateTime>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    Desc = table.Column<string>(nullable: true),
+                    Compacity = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AppGuilds", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -959,6 +982,9 @@ namespace MysqlDemo.Migrations
 
             migrationBuilder.DropTable(
                 name: "AbpUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "AppGuilds");
 
             migrationBuilder.DropTable(
                 name: "IdentityServerApiClaims");

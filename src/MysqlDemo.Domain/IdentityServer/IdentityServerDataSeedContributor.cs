@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using IdentityServer4.Models;
 using Microsoft.Extensions.Configuration;
+using MysqlDemo.Users;
 using Volo.Abp.Authorization.Permissions;
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
+using Volo.Abp.Domain.Repositories;
 using Volo.Abp.Guids;
 using Volo.Abp.IdentityServer.ApiResources;
 using Volo.Abp.IdentityServer.Clients;
@@ -25,6 +27,7 @@ namespace MysqlDemo.IdentityServer
         private readonly IGuidGenerator _guidGenerator;
         private readonly IPermissionDataSeeder _permissionDataSeeder;
         private readonly IConfiguration _configuration;
+        private readonly IRepository<AppGuild,Guid> _guilds;
 
         public IdentityServerDataSeedContributor(
             IClientRepository clientRepository,
@@ -32,8 +35,10 @@ namespace MysqlDemo.IdentityServer
             IIdentityResourceDataSeeder identityResourceDataSeeder,
             IGuidGenerator guidGenerator,
             IPermissionDataSeeder permissionDataSeeder,
-            IConfiguration configuration)
+            IConfiguration configuration,
+            IRepository<AppGuild, Guid>  guilds)
         {
+            _guilds = guilds;
             _clientRepository = clientRepository;
             _apiResourceRepository = apiResourceRepository;
             _identityResourceDataSeeder = identityResourceDataSeeder;
@@ -48,6 +53,17 @@ namespace MysqlDemo.IdentityServer
             await _identityResourceDataSeeder.CreateStandardResourcesAsync();
             await CreateApiResourcesAsync();
             await CreateClientsAsync();
+            await CreateGuildsAsync();
+        }
+
+        private async Task CreateGuildsAsync()
+        {
+            var guild=new AppGuild(_guidGenerator.Create(), "someone foo")
+            { 
+                Compacity = 200,
+                Desc = "guild tester created"
+            };
+            await _guilds.InsertAsync(guild);
         }
 
         private async Task CreateApiResourcesAsync()
