@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>MysqlDemo.Web</RootNamespace>
     <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,13 +43,13 @@
     <ProjectReference Include="..\MysqlDemo.Application\MysqlDemo.Application.csproj" />
     <ProjectReference Include="..\MysqlDemo.HttpApi\MysqlDemo.HttpApi.csproj" />
     <ProjectReference Include="..\MysqlDemo.EntityFrameworkCore.DbMigrations\MysqlDemo.EntityFrameworkCore.DbMigrations.csproj" />
-    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic" Version="1.0.2" />
-    <PackageReference Include="Volo.Abp.Autofac" Version="1.0.2" />
-    <PackageReference Include="Volo.Abp.AspNetCore.Authentication.JwtBearer" Version="1.0.2" />
-    <PackageReference Include="Volo.Abp.Identity.Web" Version="1.0.2" />
-    <PackageReference Include="Volo.Abp.Account.Web.IdentityServer" Version="1.0.2" />
-    <PackageReference Include="Volo.Abp.TenantManagement.Web" Version="1.0.2" />
-    <PackageReference Include="Volo.Abp.FeatureManagement.Web" Version="1.0.2" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic" Version="1.1.2" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="1.1.2" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Authentication.JwtBearer" Version="1.1.2" />
+    <PackageReference Include="Volo.Abp.Identity.Web" Version="1.1.2" />
+    <PackageReference Include="Volo.Abp.Account.Web.IdentityServer" Version="1.1.2" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Web" Version="1.1.2" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Web" Version="1.1.2" />
   </ItemGroup>
 
 </Project>
