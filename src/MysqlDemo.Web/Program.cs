@@ -19,6 +19,7 @@ namespace MysqlDemo.Web
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
                 .Enrich.FromLogContext()
                 .WriteTo.Async(c => c.File("Logs/logs.txt"))
+                .WriteTo.Console()
                 .CreateLogger();
 
             try
