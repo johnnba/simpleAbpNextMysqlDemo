@@ -10,14 +10,21 @@ resolve the update-database problem
 
 # 2020-01-09
 a): upgrade with the abp vnext framework  v1.1.2
+
 b): add the bacgroundjob with sending email function , however it work falied.
+
 for demo with the issue https://github.com/abpframework/abp/issues/2546
 
 the usage:
+
 1:  start the MysqlDemo.Web with google chrome browser;
+
 2:  open the url:https://localhost:44379/swagger/index.html
+
 3:  try the api route out with /api/app/registration/confirm to trigger the emailsending job
+
 4: the host console will print the below exception info:
+
 
 ```c#
 
