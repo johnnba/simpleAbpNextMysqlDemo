@@ -47,6 +47,7 @@ namespace MysqlDemo.Web
         typeof(AbpAccountWebIdentityServerModule),
         typeof(AbpAspNetCoreMvcUiBasicThemeModule),
         typeof(AbpAspNetCoreAuthenticationJwtBearerModule),
+         typeof(BackgroundJobTaskModule),
         typeof(AbpTenantManagementWebModule)
         )]
     public class MysqlDemoWebModule : AbpModule

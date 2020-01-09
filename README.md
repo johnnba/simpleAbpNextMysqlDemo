@@ -32,7 +32,9 @@ An exception was thrown while activating MysqlDemo.Web.EmailSendingJob.
 Autofac.Core.DependencyResolutionException: An exception was thrown while activating MysqlDemo.Web.EmailSendingJob.
  ---> Autofac.Core.DependencyResolutionException: None of the constructors found with 'Autofac.Core.Activators.Reflection.DefaultConstructorFinder' on type 'MysqlDemo.Web.EmailSendingJob' can be invoked with the available services and parameters:
 Cannot resolve parameter 'Volo.Abp.Emailing.IEmailSender emailSender' of constructor 'Void .ctor(Volo.Abp.Emailing.IEmailSender)'.
+
 ```
+5:finally with the help  of @maliming , add the dependancy to MysqlDemoWebModule, the  IEmailSender inject successfully, now the background job work perfectly.
 
 
 
