@@ -36,6 +36,12 @@ Cannot resolve parameter 'Volo.Abp.Emailing.IEmailSender emailSender' of constru
 ```
 5:finally with the help  of @maliming , add the dependancy to MysqlDemoWebModule, the  IEmailSender inject successfully, now the background job work perfectly.
 
+# 2020-02-02
+
+a): upgrade with the abp vnext framework  v2.0.1
+
+b)：solved the following issue:
+https://github.com/abpframework/abp/issues/2735
 
 
  
