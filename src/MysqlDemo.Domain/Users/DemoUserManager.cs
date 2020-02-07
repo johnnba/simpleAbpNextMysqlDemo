@@ -30,6 +30,7 @@ namespace MysqlDemo.Users
                 Logger.LogInformation($"query result lines is {res2}");
                 var viewRes = dbcontext.Set<TDto>().FromSqlInterpolated<TDto>(sql);
                 Logger.LogInformation($"query result count is {viewRes}");
+                return viewRes;
             }
 
             return null;

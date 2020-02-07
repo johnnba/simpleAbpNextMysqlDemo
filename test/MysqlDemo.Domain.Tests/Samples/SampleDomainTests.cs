@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using MysqlDemo.Users;
 using Shouldly;
 using Volo.Abp.Identity;
@@ -57,7 +58,7 @@ namespace MysqlDemo.Samples
                     users = userRess.ToList();
                 });
             Assert.NotNull(users);
-            users.ShouldContain(x=>x.Name== "ADMIN");
+            users.ShouldContain(x=>x.Name.ToUpper()== "ADMIN");
         }
     }
 }
