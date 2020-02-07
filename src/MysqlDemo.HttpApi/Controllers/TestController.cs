@@ -3,6 +3,7 @@ using MysqlDemo.Models.Test;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Volo.Abp.Identity.Settings;
 
 namespace MysqlDemo.Controllers
 {
@@ -24,5 +25,7 @@ namespace MysqlDemo.Controllers
                 new TestModel {Name = "Adams", BirthDate = new DateTime(1997, 05, 24)}
             };
         }
+
+      
     }
 }

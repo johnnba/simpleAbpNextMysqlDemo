@@ -43,5 +43,13 @@ a): upgrade with the abp vnext framework  v2.0.1
 b)：solved the following issue:
 https://github.com/abpframework/abp/issues/2735
 
+# 2020-02-02
+a) setup the raw sql test environment
+
+b) related issue:
+https://github.com/abpframework/abp/issues/2778
+
+c) in the project MysqlDemo.Domain.Tests; run the Should_Count_Greater_Than_0_User in the class of SampleDomainTests will get failed.
+
 
  
