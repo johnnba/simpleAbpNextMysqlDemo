@@ -21,6 +21,7 @@ namespace MysqlDemo.EntityFrameworkCore
     public class MysqlDemoDbContext : AbpDbContext<MysqlDemoDbContext>
     {
         public DbSet<AppUser> Users { get; set; }
+        public DbSet<AppUserDemoView> UserViews { get; set; }
         public DbSet<AppGuild> Guilds { get; set; }
 
         /* Add DbSet properties for your Aggregate Roots / Entities here.

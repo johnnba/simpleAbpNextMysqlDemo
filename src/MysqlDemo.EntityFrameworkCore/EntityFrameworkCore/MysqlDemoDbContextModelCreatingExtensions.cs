@@ -28,6 +28,12 @@ namespace MysqlDemo.EntityFrameworkCore
                 options.DatabaseProvider = EfCoreDatabaseProvider.MySql;
             });
             //            builder.ConfigureIdentityServerForMySQL();
+            builder.Entity<AppUserDemoView>(b =>
+            {
+                //                b.ConfigureFullAuditedAggregateRoot();
+                b.ConfigureByConvention();
+                b.ToView(nameof(AppUserDemoView));
+            });
         }
 
         public static void ConfigureCustomUserProperties<TUser>(this EntityTypeBuilder<TUser> b)
