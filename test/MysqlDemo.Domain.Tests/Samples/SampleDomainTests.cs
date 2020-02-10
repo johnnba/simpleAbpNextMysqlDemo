@@ -51,10 +51,10 @@ namespace MysqlDemo.Samples
         [Fact]
         public async Task Should_Count_Greater_Than_0_User()
         {
-            List<AppUser>  users=null;
+            List<AppUserDemoView>  users=null;
             await WithUnitOfWorkAsync(async () =>
                 {
-                    var userRess = await _demoUserManager.ExcuteQueryAsync<AppUser>($"select * from abpusers");
+                    var userRess = await _demoUserManager.ExcuteQueryAsync<AppUserDemoView>($"select * from AbpUsers");
                     users = userRess.ToList();
                 });
             Assert.NotNull(users);
